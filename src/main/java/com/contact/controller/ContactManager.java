@@ -1,16 +1,12 @@
 package com.contact.controller;
 
-import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.data.repository.support.Repositories;
+
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
+
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.servlet.ModelAndView;
-
-import com.contact.model.Contact;
-import com.contact.model.User;
 import com.contact.repository.UserRepo;
 
 @RestController
@@ -19,34 +15,43 @@ public class ContactManager {
 	@Autowired
 	UserRepo repo;
 	
-	@GetMapping("/about")
+	@GetMapping("/")
 	public ModelAndView home() {
 		
 		ModelAndView mv=new ModelAndView();
-		mv.setViewName("home");
+		mv.setViewName("index");
 		mv.addObject("title", "Home-Smart contact manager");
 		
 		return mv;
-
 	}
-
-	@GetMapping("/")
-	public ModelAndView about() {
-		
-		ModelAndView mv=new ModelAndView();
-		mv.setViewName("index");
-		mv.addObject("title", "about-Smart contact manager");
-		
-		return mv;
-
-	}
-
-	@PostMapping("myform")
-	public ModelAndView myform()
+	@GetMapping("/about")
+	public ModelAndView about()
 	{
-		ModelAndView  mv=new ModelAndView();
-
+		ModelAndView mv=new ModelAndView();
+		mv.setViewName("about");
+		mv.addObject("title", "About-Smart contact manager");
 		return mv;
+
 	}
+	@GetMapping("/login")
+	public ModelAndView login()
+	{
+		ModelAndView mv=new ModelAndView();
+		mv.setViewName("login");
+		mv.addObject("title", "login-Smart contact manager");
+		return mv;
+
+	}
+	@GetMapping("/singup")
+	public ModelAndView singup()
+	{
+		ModelAndView mv=new ModelAndView();
+		mv.setViewName("singup");
+		mv.addObject("title", "singup-Smart contact manager");
+		return mv;
+
+	}
+
+	
 
 }

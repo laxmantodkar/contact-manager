@@ -9,13 +9,13 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.servlet.ModelAndView;
 
+import com.contact.helper.Message;
 import com.contact.model.User;
 import com.contact.repository.UserRepo;
 
-import ch.qos.logback.core.model.Model;
 
 @RestController
-public class ContactManager {
+public class HomeController {
 
 	@Autowired
 	private UserRepo userRepo;
@@ -24,7 +24,7 @@ public class ContactManager {
 	public ModelAndView home() {
 
 		ModelAndView mv = new ModelAndView();
-		mv.setViewName("index");
+		mv.setViewName("jsp/index");
 		mv.addObject("title", "Home-Smart contact manager");
 
 		return mv;
@@ -33,7 +33,7 @@ public class ContactManager {
 	@GetMapping("/about")
 	public ModelAndView about() {
 		ModelAndView mv = new ModelAndView();
-		mv.setViewName("about");
+		mv.setViewName("jsp/about");
 		mv.addObject("title", "About-Smart contact manager");
 		return mv;
 
@@ -42,7 +42,7 @@ public class ContactManager {
 	@GetMapping("/login")
 	public ModelAndView login() {
 		ModelAndView mv = new ModelAndView();
-		mv.setViewName("login");
+		mv.setViewName("jsp/login");
 		mv.addObject("title", "login-Smart contact manager");
 		return mv;
 
@@ -51,22 +51,34 @@ public class ContactManager {
 	@GetMapping("/singup")
 	public ModelAndView singup() {
 		ModelAndView mv = new ModelAndView();
-		mv.setViewName("singup");
+		mv.setViewName("jsp/singup");
 		mv.addObject("title", "singup-Smart contact manager");
 		return mv;
 
 	}
 
 	@PostMapping("/do_register")
-	public String doRegister(@ModelAttribute User user,
-			@RequestParam(value = "agreement", defaultValue = "false") Boolean agreement, Model mode) {
+	public ModelAndView doRegister(@ModelAttribute User user,
+			@RequestParam(value = "agreement", defaultValue = "false") Boolean agreement) {
+		ModelAndView mv = new ModelAndView();
 		System.out.println(user);
-		if (!agreement) {
-			System.out.println("checkBox is not selected");
+		try {
+			if (!agreement) {
+				throw new Exception("check box is not selected");
+			} else {
+				user.setRole("User_Role");
+				user.setEnable(true);
+				mv.addObject("user", new User());
+				userRepo.save(user);
+				mv.addObject("message", new Message("Successfully Registered !!", "success"));
+				mv.setViewName("jsp/singup");
+			}
+		} catch (Exception e) {
+			mv.addObject("user", user);
+			mv.addObject("message", new Message("Something went wrong !!", "error"));
+			mv.setViewName("jsp/singup");
 		}
-		user.setRole("User_Role");
-		user.setEnable(true);
-		return "singup";
+		return mv;
 	}
 
 }

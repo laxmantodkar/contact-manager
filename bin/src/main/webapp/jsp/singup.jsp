@@ -8,7 +8,7 @@
     <title>Document</title>
     <style>
         .singup {
-            height: 100%;
+            height: 90%;
             width: 100%;
         }
 
@@ -25,7 +25,7 @@
         }
 
         .about {
-            margin-top: 2rem;
+            margin-top: 6rem;
             margin-left: 2rem;
         }
 
@@ -62,23 +62,21 @@
 
         .button {
             position: relative;
-            left: 10rem;
+            left: 200px;
             margin-top: 20px;
         }
 
         .reset {
-            margin-left: 5rem;
+            margin-left: 40px;
         }
-
-        #checkbox .checkbox {
+        #checkbox .checkbox{
             height: 1.1rem;
             width: 1.1rem;
         }
-
-        #checkbox {
+        #checkbox{
             font-size: 1.4rem;
             position: relative;
-            left: 5px;
+            left: 150px;
         }
     </style>
 </head>
@@ -86,25 +84,24 @@
 <body>
     <jsp:include page="header.jsp" />
     <div class="singup">
-
         <div class="from">
-            <div id="message"></div>
+            <div class="massege"></div>
             <div class="about">
 
-                <h1 style="text-align: center;">REGISTER HERE !!</h1>
+                <h1 style="text-align: center;">REGISTER HERE</h1>
                 <form action="do_register" method="post">
                     <div class="infromation">Your Name<br>
-                        <input type="text" value="${user.name}" name="name">
+                        <input type="text" name="name">
                     </div>
                     <div class="infromation">Your Email<br>
-                        <input type="text" value="${user.email}" name="email">
+                        <input type="text" name="email">
                     </div>
                     <div class="infromation">Password<br>
-                        <input type="text" value="${password}" name="password">
+                        <input type="text" name="password">
                     </div>
                     <div class="area">
                         Description<br>
-                        <textarea name="about">${about}</textarea>
+                        <textarea name="about"></textarea>
                     </div>
                     <div id="checkbox">
                         <input class="checkbox" type="checkbox" name="agreement"> Accept term and conditions
@@ -119,27 +116,6 @@
         </div>
 
     </div>
-    <script>
-
-
-        let type = "${message.type}";
-        let massege=document.getElementById("message");
-        if (type=="success") {
-            massege.innerHTML="${message.content}"
-            message.style.color = "green";
-            massege.style.fontSize="40px";
-            massege.style.textAlign="center";
-        } else if(type=="error") {
-            massege.innerHTML="${message.content}"
-            massege.style.fontSize="40px";
-            massege.style.color="red";
-            massege.style.textAlign="center";
-            
-        }
-
-
-
-    </script>
 </body>
 
 </html>

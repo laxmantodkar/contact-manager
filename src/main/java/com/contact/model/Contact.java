@@ -1,11 +1,6 @@
 package com.contact.model;
 
-
-
-
-
-import jakarta.persistence.*;
-
+import javax.persistence.*;
 
 @Entity
 public class Contact {

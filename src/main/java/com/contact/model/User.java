@@ -20,12 +20,18 @@ public class User {
 	private boolean enable;
 	private String imageUrl;
 	private String about;
+	private String agreement;
 	
 	
 	@OneToMany(mappedBy = "user",cascade = CascadeType.ALL,fetch = FetchType.LAZY)
 	private List<Contact> contact = new ArrayList<>();
 	
-	
+	public String getAgreement() {
+		return agreement;
+	}
+	public void setAgreement(String agreement) {
+		this.agreement = agreement;
+	}
 	public List<Contact> getContact() {
 		return contact;
 	}

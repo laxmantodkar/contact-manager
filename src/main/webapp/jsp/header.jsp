@@ -2,9 +2,7 @@
 <html lang="en">
 
 <head>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
-        integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw=="
-        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -45,15 +43,14 @@
             font-size: 20px;
             list-style: none;
         }
-
         ul li a {
-            text-decoration: none;
+                text-decoration: none;
+               
+                border-radius: 8px;
+                cursor: pointer;
+                padding: 0.2rem 1rem;
 
-            border-radius: 8px;
-            cursor: pointer;
-            padding: 0.2rem 1rem;
-
-        }
+            }
     </style>
 </head>
 

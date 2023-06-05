@@ -2,9 +2,10 @@ package com.contact.model;
 
 
 
-import org.apache.logging.log4j.util.StringBuilderFormattable;
+
 
 import jakarta.persistence.*;
+
 
 @Entity
 public class Contact {

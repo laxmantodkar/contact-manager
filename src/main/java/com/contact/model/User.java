@@ -3,7 +3,8 @@ package com.contact.model;
 
 import java.util.*;
 
-import jakarta.persistence.*;
+import javax.persistence.*;
+
 
 @Entity
 @Table(name="user")

@@ -11,14 +11,14 @@ import org.springframework.web.servlet.ModelAndView;
 
 import com.contact.helper.Message;
 import com.contact.model.User;
-import com.contact.repository.UserRepo;
+import com.contact.repository.UserRepository;
 
 
 @RestController
 public class HomeController {
 
 	@Autowired
-	private UserRepo userRepo;
+	private UserRepository userRepo;
 
 	@GetMapping("/")
 	public ModelAndView home() {

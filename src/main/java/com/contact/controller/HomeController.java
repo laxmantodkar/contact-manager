@@ -1,7 +1,7 @@
 package com.contact.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
-
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -17,6 +17,8 @@ import com.contact.repository.UserRepository;
 @RestController
 public class HomeController {
 
+	@Autowired
+	private BCryptPasswordEncoder bCryptPasswordEncoder;
 	@Autowired
 	private UserRepository userRepo;
 
@@ -66,8 +68,9 @@ public class HomeController {
 			if (!agreement) {
 				throw new Exception("check box is not selected");
 			} else {
-				user.setRole("User_Role");
+				user.setRole("ROLE_USER");
 				user.setEnable(true);
+				user.setPassword(bCryptPasswordEncoder.encode(user.getPassword()));
 				mv.addObject("user", new User());
 				userRepo.save(user);
 				mv.addObject("message", new Message("Successfully Registered !!", "success"));

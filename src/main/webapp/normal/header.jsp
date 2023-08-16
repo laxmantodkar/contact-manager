@@ -2,70 +2,70 @@
 <html lang="en">
 
 <head>
-    
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <style>
-        * {
-            margin: 0px;
-            padding: 0px;
-        }
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="stylesheet"
+	href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
+	integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA=="
+	crossorigin="anonymous" referrerpolicy="no-referrer" />
+<title></title>
 
-        body {
-            width: 100vw;
-            height: 100vh;
-            background-color: antiquewhite;
-        }
+<style>
+body {
+	margin: 0;
+	padding: 0;
+	width: 100vw;
+	height: 100vh;
+	background-color: #f1f1f1;
+}
 
-        ul {
-            display: flex;
-            flex-direction: row-reverse;
-            justify-content: space-around;
+.header {
+	width: 100%;
+	height: 10%;
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+	display: flex;
+	background-color: #cfd5d3;
+}
 
-        }
+.field ul {
+	display: flex;
+	flex-direction: row;
+	gap: 30px;
+	margin-right: 50px;
+}
 
-        .headerBar {
-            display: flex;
-            justify-content: space-between;
-            background-color: aquamarine;
-            height: 100%;
-        }
+.item {
+	list-style: none;
+	font-size: 20px;
+}
 
-        .header {
-            height: 10%;
-        }
+.heading {
+	font-size: 20px;
+	margin-left: 50px;
+}
 
-        ul li {
-            margin-right: 30px;
-            margin-top: 16px;
-            font-size: 20px;
-            list-style: none;
-        }
-        ul li a {
-                text-decoration: none;
-               
-                border-radius: 8px;
-                cursor: pointer;
-                padding: 0.2rem 1rem;
-
-            }
-    </style>
+.field a {
+	text-decoration: none;
+}
+</style>
 </head>
-
 <body>
-    <div class="header">
-        <div class="headerBar">
-            <h2 style="margin-top: 16px;">SMART CONTACT MANAGER</h2>
-            <ul>
-                <li> <a href="singup">SINGUP</a></li>
-                <li> <a href="login">LOGIN</a></li>
-                <li> <a href="about">ABOUT</a></li>
-                <li> <a href="/">HOME</a></li>
-            </ul>
-        </div>
-    </div>
+	<header class="header">
+		<p class="heading">SMAART CONTACT MANAGER</p>
+		<div class="field">
+			<ul>
+				<li class="item"><a href="#">Home</a></li>
+				<li class="item"><a href="#">${user.name}</a></li>
+				<li class="item"><a href="#">Logout</a></li>
+
+
+			</ul>
+		</div>
+	</header>
 </body>
+
 
 </html>

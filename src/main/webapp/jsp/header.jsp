@@ -16,7 +16,7 @@
         body {
             width: 100vw;
             height: 100vh;
-            background-color: antiquewhite;
+            background-color: #f1f1f1;
         }
 
         ul {
@@ -29,7 +29,7 @@
         .headerBar {
             display: flex;
             justify-content: space-between;
-            background-color: aquamarine;
+            background-color: #cfd5d3;
             height: 100%;
         }
 

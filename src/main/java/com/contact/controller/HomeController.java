@@ -1,7 +1,6 @@
 package com.contact.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -13,12 +12,9 @@ import com.contact.helper.Message;
 import com.contact.model.User;
 import com.contact.repository.UserRepository;
 
-
 @RestController
 public class HomeController {
 
-	@Autowired
-	private BCryptPasswordEncoder bCryptPasswordEncoder;
 	@Autowired
 	private UserRepository userRepo;
 
@@ -70,15 +66,14 @@ public class HomeController {
 			} else {
 				user.setRole("ROLE_USER");
 				user.setEnable(true);
-				user.setPassword(bCryptPasswordEncoder.encode(user.getPassword()));
 				mv.addObject("user", new User());
 				userRepo.save(user);
-				mv.addObject("message", new Message("Successfully Registered !!", "success"));
-				mv.setViewName("jsp/singup");
+				mv.addObject("msg", "Successfully Registered !!");
+				mv.setViewName("jsp/login");
 			}
 		} catch (Exception e) {
 			mv.addObject("user", user);
-			mv.addObject("message", new Message("Something went wrong !!", "error"));
+			mv.addObject("msg", "Something went wrong !!");
 			mv.setViewName("jsp/singup");
 		}
 		return mv;

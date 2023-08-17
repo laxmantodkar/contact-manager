@@ -5,6 +5,8 @@
 <head>
 <meta charset="ISO-8859-1">
 <title>Add Contact</title>
+<link rel="stylesheet"
+	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
 <style type="text/css">
 .body-wrapper {
 	display: flex;
@@ -113,7 +115,7 @@
 							class="textarea" name="description" rows="" cols=""></textarea>
 					</div>
 					<div class="field">
-						<input type="file" placeholder="Enter work here">
+						<input type="file" name="image" placeholder="Enter work here">
 					</div>
 					<div>
 						<button class="add-button" type="submit">Submit</button>
@@ -131,5 +133,9 @@
 
 		}
 	</script>
+	<script
+		src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+	<script
+		src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
 </body>
 </html>

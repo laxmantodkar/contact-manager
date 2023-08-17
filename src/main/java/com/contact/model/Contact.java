@@ -22,15 +22,17 @@ public class Contact {
 	private String work;
 	private String email;
 	private String phone;
-	private String image;
-	@Transient
+	private String imageName;
+	@Lob
 	private byte[] profileImage;
+
 	@Column(length = 5000)
 	private String description;
 
 	@ManyToOne(fetch = FetchType.EAGER)
 	private User user;
 
+	@Transient
 	public byte[] getProfileImage() {
 		return profileImage;
 	}
@@ -95,12 +97,13 @@ public class Contact {
 		this.phone = phone;
 	}
 
-	public String getImage() {
-		return image;
+	
+	public String getImageName() {
+		return imageName;
 	}
 
-	public void setImage(String image) {
-		this.image = image;
+	public void setImageName(String imageName) {
+		this.imageName = imageName;
 	}
 
 	public String getDescription() {

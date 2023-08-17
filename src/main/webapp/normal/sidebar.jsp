@@ -6,6 +6,7 @@
 <head>
 <meta charset="ISO-8859-1">
 <title>User home page</title>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link
@@ -67,21 +68,27 @@
 .main {
 	display: flex;
 }
+
+
+.active {
+	background-color: red;
+}
 </style>
 </head>
 <body>
 
 	<div class="sidebar" id="sidebar">
-		<ul>
-			<li class="items"><a href="/home"><i
+		<ul id="items-list">
+			<li class="items" onclick="active()"><a href="/home"><i
 					style="padding-right: 9px;" class="fas fa-home"></i>Home</a></li>
-			<li class="items"><a href="#"><i style="padding-right: 9px;"
-					class="fas fa-id-card-alt"></i>View Contact</a></li>
+			<li class="items" onclick="active()"><a href="viewcontact"><i
+					style="padding-right: 9px;" class="fas fa-id-card-alt"></i>View
+					Contact</a></li>
 			<li class="items"><a href="getaddcontactform"><i
 					style="padding-right: 9px;" class="fas fa-pencil-alt"></i>Add
 					Contact</a></li>
 			<li class="items"><a href="#"><i style="padding-right: 9px;"
-					class="fas fa-user-circle"></i>View Profile</a></li>
+					class="fas fa-user-circle"></i>Your Profile</a></li>
 			<li class="items"><a href="#"><i style="padding-right: 9px;"
 					class="fas fa-cogs"></i>Setting</a></li>
 			<li class="items"><a href="#"><i style="padding-right: 9px;"
@@ -90,7 +97,13 @@
 		<div class="divider"></div>
 	</div>
 
-
+	<script type="text/javascript">
+	
+	let litemList = document.getElementById("items-list")
+		listItems.forEach((link) => {
+			link.classList.add("active")
+		})
+	</script>
 </body>
 
 </html>

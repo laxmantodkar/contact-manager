@@ -69,7 +69,6 @@
 	display: flex;
 }
 
-
 .active {
 	background-color: red;
 }
@@ -87,12 +86,13 @@
 			<li class="items"><a href="getaddcontactform"><i
 					style="padding-right: 9px;" class="fas fa-pencil-alt"></i>Add
 					Contact</a></li>
-			<li class="items"><a href="#"><i style="padding-right: 9px;"
-					class="fas fa-user-circle"></i>Your Profile</a></li>
+			<li class="items"><a href="viewprofile"><i
+					style="padding-right: 9px;" class="fas fa-user-circle"></i>Your
+					Profile</a></li>
 			<li class="items"><a href="#"><i style="padding-right: 9px;"
 					class="fas fa-cogs"></i>Setting</a></li>
-			<li class="items"><a href="#"><i style="padding-right: 9px;"
-					class="fas fa-sign-out-alt"></i>Logout</a></li>
+			<li class="items"><a href="logout"><i
+					style="padding-right: 9px;" class="fas fa-sign-out-alt"></i>Logout</a></li>
 		</ul>
 		<div class="divider"></div>
 	</div>

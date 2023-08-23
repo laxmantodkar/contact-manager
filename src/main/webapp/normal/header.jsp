@@ -60,7 +60,7 @@ body {
 			<ul>
 				<li class="item"><a href="#">Home</a></li>
 				<li class="item"><a href="#">${user.name}</a></li>
-				<li class="item"><a href="#">Logout</a></li>
+				<li class="item"><a href="logout">Logout</a></li>
 
 
 			</ul>

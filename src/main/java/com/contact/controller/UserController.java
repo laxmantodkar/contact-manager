@@ -158,4 +158,35 @@ public class UserController {
 
 		return mv;
 	}
+
+	@GetMapping("viewprofile")
+	public ModelAndView Viewprofile(HttpServletRequest request) {
+		ModelAndView mv = new ModelAndView();
+		User user = (User) request.getSession().getAttribute("user");
+		if (user == null) {
+			mv.setViewName("jsp/login");
+			return mv;
+		}
+		try {
+			mv.addObject("user", user);
+
+		} catch (Exception e) {
+			System.out.println(e);
+		}
+		mv.setViewName("normal/viewprofile");
+		return mv;
+	}
+
+	@GetMapping("logout")
+	public ModelAndView logOut(HttpServletRequest request) {
+		ModelAndView mv = new ModelAndView();
+		User user = (User) request.getSession().getAttribute("user");
+		if (user == null) {
+			mv.setViewName("jsp/login");
+			return mv;
+		}
+		mv.setViewName("jsp/login");
+		mv.addObject("msg", "Logout Successfully");
+		return mv;
+	}
 }
